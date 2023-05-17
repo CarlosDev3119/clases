@@ -1,12 +1,20 @@
-const { OperacionesClass } = require("./classes/OperacionesClass");
 
-//instancia
-const operaciones = new OperacionesClass();
+const CuentaBancaria = require("./classes/CuentaBancaria");
 
-operaciones.operacionSuma(1, 2);
-operaciones.operacionResta(1, 2);
-operaciones.operacionMulti(1, 2);
-operaciones.operacionDivision(1, 2);
-operaciones.operacionPotencia(10);
 
-console.log(operaciones.resultados);
+// clase de banco
+const newCliente = new CuentaBancaria("Daniel");
+
+
+newCliente.depositarDinero(1800);
+newCliente.retirarDinero(700);
+newCliente.retirarDinero(500);
+
+
+console.log(newCliente.consultarSaldo());
+
+
+
+// let respt = newCliente.retirarDinero(100);
+
+// console.log(respt);
