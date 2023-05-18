@@ -1,31 +1,40 @@
+class Cliente{
+    constructor( cliente ){
+        this.cliente = {
+            saldo: 0,
+            cuenta: new Date().getTime(),
+            cliente
+        }
+    }
+}
 
 class CuentaBancaria{
 
-    constructor( cliente ){
+    constructor( {cliente, saldo, cuenta} ){
         this.cliente = cliente;
-        this.saldo   = 0;
-        this.cuenta  = new Date().getTime();
+        this.saldo   = saldo;
+        this.cuenta  = cuenta;
     }
 
-    retirarDinero( cantidadRetiro ){
-
-        if( cantidadRetiro > this.saldo ){
-            return 'No cuentas con saldo suficente';
+    retiroDinero( cantidad ){
+        if( cantidad > this.saldo){
+            return 'No cuentas con saldo suficiente';
         }
-        
-        this.saldo = this.saldo - cantidadRetiro;
-
-        return this.saldo;
+        this.saldo = this.saldo - cantidad;
     }
 
-    consultarSaldo(){
-        return this.saldo;
+    depositarDinero( cantidad ){
+        this.saldo = this.saldo + cantidad;
     }
 
-    depositarDinero( cantidadDeposito ){
-        this.saldo = this.saldo + cantidadDeposito;
+    mostrarSaldo(){
+        return this.saldo;
     }
 
 }
 
-module.exports = CuentaBancaria;
+
+module.exports = {
+    Cliente,
+    CuentaBancaria
+};

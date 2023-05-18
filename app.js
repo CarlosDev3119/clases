@@ -1,20 +1,18 @@
-
-const CuentaBancaria = require("./classes/CuentaBancaria");
-
-
-// clase de banco
-const newCliente = new CuentaBancaria("Daniel");
+const { CuentaBancaria, Cliente } = require("./classes/CuentaBancaria");
 
 
-newCliente.depositarDinero(1800);
-newCliente.retirarDinero(700);
-newCliente.retirarDinero(500);
+const {cliente} = new Cliente('Carlos');
 
 
-console.log(newCliente.consultarSaldo());
+const cuentaCliente = new CuentaBancaria(cliente);
+
+cuentaCliente.depositarDinero(1800);
+cuentaCliente.depositarDinero(2000);
+
+cuentaCliente.retiroDinero(1000);
+
+let saldoActual = cuentaCliente.mostrarSaldo();
+
+console.log(cuentaCliente);
 
 
-
-// let respt = newCliente.retirarDinero(100);
-
-// console.log(respt);
